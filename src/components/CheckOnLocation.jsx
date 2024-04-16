@@ -4,6 +4,16 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -35,6 +45,9 @@ import {
 
 import { uttarPradeshDistricts } from "@/assets/data/districts";
 import { districtData } from "@/assets/data/districtData";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { Detail } from "@/assets/data/detail";
 
 const formSchema = z.object({
   state: z.string({
@@ -48,7 +61,6 @@ const formSchema = z.object({
 const CheckOnLocation = () => {
   const [result, setResult] = useState();
   const form = useForm({ resolver: zodResolver(formSchema) });
-  console.log(result);
   function onSubmit(data) {
     if (data.state) {
       const Result = districtData.filter(
@@ -147,11 +159,31 @@ const CheckOnLocation = () => {
           <TableBody>
             {result?.map((data) =>
               data.data?.map((tbData) => (
-                <TableRow key={tbData}>
-                  <TableCell className="font-medium">{tbData.label}</TableCell>
-                  <TableCell>{tbData.value}</TableCell>
-                  <TableCell>{tbData.unit}</TableCell>
-                </TableRow>
+                <Dialog key={tbData.label}>
+                  <DialogTrigger asChild>
+                    <TableRow>
+                      <TableCell className="font-medium">
+                        {tbData.label}
+                      </TableCell>
+                      <TableCell>{tbData.value}</TableCell>
+                      <TableCell>{tbData.unit}</TableCell>
+                    </TableRow>
+                  </DialogTrigger>
+                  <DialogContent className="bg-[#262730] text-white">
+                    {Detail.filter((item) => item.title == tbData.label).map(
+                      (detail) => (
+                        <DialogHeader key={detail.subtitle} className='w-full h-full flex flex-col gap-2'>
+                          {console.log(detail)}
+                          <DialogTitle>{detail.title}</DialogTitle>
+                          <DialogDescription>
+                            {detail.subtitle}
+                          </DialogDescription>
+                          <div>{detail.introduction}</div>
+                        </DialogHeader>
+                      )
+                    )}
+                  </DialogContent>
+                </Dialog>
               ))
             )}
           </TableBody>

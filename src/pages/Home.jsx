@@ -1,12 +1,9 @@
 import CheckOnLocation from "@/components/CheckOnLocation";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import React, { useState } from "react";
+import React from "react";
 // import background from "src/assets/background.jpg";
 
 const Home = () => {
-  const [location, setLocation] = useState("");
-  const [flag, setFlag] = useState(false);
+
   return (
     <>
       <div className="w-full bg-[#0e1117] h-full">
@@ -33,31 +30,7 @@ const Home = () => {
             Check Water Quality in Your Area
           </h5>
           <CheckOnLocation />
-          {/* <div className="flex gap-4 justify-center items-center">
-            <Input
-              className="w-1/3 bg-gray-700"
-              type="text"
-              placeholder="Enter Your Location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
-            <Button
-              className="bg-white text-sky-600 border-2 border-zinc-800 text-lg font-medium shadow-md hover:bg-transparent rounded-xl duration-300 hover:text-zinc-900"
-              onClick={() => setFlag(true)}
-            >
-              Search
-            </Button>
-          </div> */}
         </div>
-        {flag && (
-          <p></p>
-          // <div className="flex flex-col items-start justify-center gap-2 text-xl font-medium p-8 text-left text-blue-900 bg-blend-difference">
-          //   <p>General Water Quality Rating:</p>
-          //   <p>Water Quality for Children: </p>
-          //   {/* <p>Water Quality for Pregnant Women: </p> */}
-          //   <p>Water Quality for Elderly </p>
-          // </div>
-        )}
       </div>
     </>
   );

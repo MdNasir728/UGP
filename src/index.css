@@ -74,15 +74,23 @@
     @apply border-border m-0 p-0;
   }
   body {
-    @apply bg-background text-foreground ;
+    @apply bg-background text-foreground;
     color: #f0f8ff;
   }
 }
 
-.active{
+.active {
   background: orangered;
 }
-.gradient{
-  background: rgb(101,99,255);
-background: linear-gradient(90deg, rgba(101,99,255,1) 0%, rgba(120,54,235,1) 31%, rgba(255,99,132,1) 64%, rgba(235,54,234,1) 100%);
+.gradient {
+  background: rgb(101, 99, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(101, 99, 255, 1) 0%,
+    rgba(120, 54, 235, 1) 31%,
+    rgba(255, 99, 132, 1) 64%,
+    rgba(235, 54, 234, 1) 100%
+  );
 }
+
+
