@@ -5,6 +5,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
+import SaltSolverApp from './salt/Salt'
 
 function App() {
   return (
@@ -14,11 +15,11 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/check-water-quality" element={<CheckWaterQuality />} />
+          <Route path="/brewing-salt-calculator" element={<SaltSolverApp />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
         </Route>
       </Routes>
-      {/* <SaltSolverApp /> */}
       {/* <Dummy /> */}
     </div>
   );

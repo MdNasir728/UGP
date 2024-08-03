@@ -8,9 +8,9 @@ const Layout = () => {
       <div className="flex flex-col w-[22rem] h-[100vh] border-r-2 border-gray-100 bg-[#262730] gap-8 relative top-0 left-0">
         <Navbar />
       </div>
-      <div className="w-[calc(100%-22rem)] right-0">
+      <div className="w-[calc(100%-22rem)] right-0 min-h-[100vh]">
 
-      <Outlet />
+        <Outlet />
       </div>
     </div>
   );

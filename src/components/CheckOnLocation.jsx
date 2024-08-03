@@ -48,6 +48,7 @@ import { districtData } from "@/assets/data/districtData";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Detail } from "@/assets/data/detail";
+import { limit } from "@/assets/data/limit";
 
 const formSchema = z.object({
   state: z.string({
@@ -153,6 +154,7 @@ const CheckOnLocation = () => {
             <TableRow>
               <TableHead>Parameter</TableHead>
               <TableHead>Value</TableHead>
+              <TableHead>Limit</TableHead>
               <TableHead>Unit</TableHead>
             </TableRow>
           </TableHeader>
@@ -166,13 +168,18 @@ const CheckOnLocation = () => {
                         {tbData.label}
                       </TableCell>
                       <TableCell>{tbData.value}</TableCell>
+                      <TableCell>{tbData.limit}</TableCell>
                       <TableCell>{tbData.unit}</TableCell>
                     </TableRow>
+                    
                   </DialogTrigger>
                   <DialogContent className="bg-[#262730] text-white">
                     {Detail.filter((item) => item.title == tbData.label).map(
                       (detail) => (
-                        <DialogHeader key={detail.subtitle} className='w-full h-full flex flex-col gap-2'>
+                        <DialogHeader
+                          key={detail.subtitle}
+                          className="w-full h-full flex flex-col gap-2"
+                        >
                           {console.log(detail)}
                           <DialogTitle>{detail.title}</DialogTitle>
                           <DialogDescription>

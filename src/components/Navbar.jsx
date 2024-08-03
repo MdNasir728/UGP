@@ -33,6 +33,14 @@ const Navbar = () => {
         <div className="font-bold text-xl w-full">
           <NavLink
             className="py-2 px-4 hover:text-gray-600 rounded-xl flex self-stretch"
+            to="/brewing-salt-calculator"
+          >
+            Salt Calculator
+          </NavLink>
+        </div>
+        <div className="font-bold text-xl w-full">
+          <NavLink
+            className="py-2 px-4 hover:text-gray-600 rounded-xl flex self-stretch"
             to="/about"
           >
             About
