@@ -71,7 +71,7 @@ const CheckWaterQuality = () => {
           suitable to drink or not.
         </p>
         <div className="w-full h-[2px] bg-gray-500 " />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           <DataInput label="Colour (TCU)" value={color} setter={setColor} />
           <DataInput
             label="Aluminium (mg/l)"

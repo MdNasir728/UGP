@@ -10,6 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 import mineralProfiles from './data/mineral_profiles.json';
+import { Input } from '@/components/ui/input';
 
 
 class BrewEntry extends React.Component {
@@ -44,7 +45,7 @@ class BrewEntry extends React.Component {
           <Grid item xs={12} sm={6} md={4} lg={4}>
             <Typography variant='h6' gutterBottom>Mineral Inventory</Typography>
 
-            <FormLabel component='legend'>Which brewing salts do you have available?</FormLabel>
+            <h5 className='text-white mt-10 mb-4'>Which brewing salts do you have available?</h5>
             <FormGroup>
               {mineralProfiles.map((profile) => {
                 const mineralKey = profile.mineral;
@@ -63,15 +64,14 @@ class BrewEntry extends React.Component {
         <br />
         <Grid container justify='center' className={classNames} spacing={1}>
           <Grid item xs={12} sm={6} md={4} lg={4}>
-            <Typography variant='h6' gutterBottom>Water Volume</Typography>
-            <TextField
-              label='Total Brewing Water Volume'
+            <Typography variant='h6' gutterBottom>Total Brewing Water Volume (Litres)</Typography>
+            <Input
+                          className='bg-[#262730] overflow-hidden text-white'
+
               type='number'
               min={0.0}
               value={this.props.state['waterVolume']}
               onChange={(e) => this.handleVolumeChange(e)}
-              InputProps={{ startAdornment: <InputAdornment position='start'>litres</InputAdornment> }}
-              variant='outlined'
               required
               fullWidth
             />

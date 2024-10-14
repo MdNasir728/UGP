@@ -3,6 +3,8 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import DataInput from '@/components/DataInput';
+import { Input } from '@/components/ui/input';
 
 
 class IonProfileEntry extends React.Component {
@@ -12,7 +14,7 @@ class IonProfileEntry extends React.Component {
     this.handleIonChange = this.handleIonChange.bind(this);
   };
 
-  handleIonChange (event, ion) {
+  handleIonChange(event, ion) {
     if (this.props.onIonChange !== undefined && this.props.onIonChange !== null) {
       this.props.onIonChange(event.target.value, ion);
     } else {
@@ -20,28 +22,28 @@ class IonProfileEntry extends React.Component {
     }
   };
 
-  render () {
+  render() {
     const classNames = [this.classNames, 'IonEntry'].join(' ')
     const ions = ['calcium', 'magnesium', 'sodium', 'sulfate', 'chloride', 'bicarbonate'];
 
     return (
-      <Grid container justify='center' className={classNames} spacing={1}>
+      <div className={`${classNames} grid grid-cols-3 gap-4`} >
         {ions.map((ion) => (
-          <Grid key={ion} item xs={12} sm={6} md={4} lg={2}>
-            <TextField
-              label={ion.charAt(0).toUpperCase() + ion.slice(1)}
+          <div key={ion} className='w-full p-2 space-y-1 '>
+            <h5>{ion.charAt(0).toUpperCase() + ion.slice(1)} (ppm)</h5>
+
+            <Input
+              className='bg-[#262730] overflow-hidden text-white'
               type='number'
               min={0.0}
               value={this.props.state[ion]}
-              onChange={(e) => this.handleIonChange(e, ion)}
-              InputProps={{ startAdornment: <InputAdornment position='start'>ppm</InputAdornment> }}
-              variant='outlined'
+              onChange={e => this.handleIonChange(e, ion)}
               required
               fullWidth
             />
-          </Grid>
+          </div>
         ))}
-      </Grid>
+      </div>
     );
   }
 };

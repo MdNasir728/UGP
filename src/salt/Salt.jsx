@@ -11,7 +11,9 @@ import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
+import { Button } from "@/components/ui/button";
+
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
@@ -38,7 +40,7 @@ const styles = (theme) => ({
   layout: {
     color: '#fff',
     backgroundColor: '#0e1117',
-paddingTop:theme.spacing(6),
+    paddingTop: theme.spacing(6),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
       // width: 1024,
       marginLeft: 'auto',
@@ -57,7 +59,7 @@ paddingTop:theme.spacing(6),
   stepper: {
     backgroundColor: '#0e1117',
     color: '#fff',
-    padding: theme.spacing(3, 0, 5),
+    padding: theme.spacing(3, 15, 5),
   },
   buttons: {
     display: 'flex',
@@ -180,11 +182,11 @@ class SaltCalculatorApp extends React.Component {
       case 0:
         return (
           <React.Fragment>
-            <Typography variant='h6' gutterBottom>
+            <Typography variant='h5' gutterBottom>
               Source Water Profile Input
             </Typography>
 
-            <Typography gutterBottom>
+            <Typography gutterBottom className='font-medium text-lg'>
               Enter your source water profile here, with each mineral in parts per million. You can usually find these from
               your municipal water provider's reports - or, if you're using bottled water, on the side of the bottle.
             </Typography>
@@ -228,7 +230,7 @@ class SaltCalculatorApp extends React.Component {
               </IonProfileEntry>
             </div>
             <br />
-            <Accordion>
+            {/* <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls='panel2a-content'
@@ -240,7 +242,7 @@ class SaltCalculatorApp extends React.Component {
                   selectRow={this.selectPresetTarget}>
                 </WaterProfilesTable>
               </AccordionDetails>
-            </Accordion>
+            </Accordion> */}
           </React.Fragment>
         );
       case 2:
@@ -260,39 +262,39 @@ class SaltCalculatorApp extends React.Component {
 
   render() {
     return (
-        <div className={` w-full bg-[#0e1117] h-full`}>
-          <div className={`flex flex-col justify-center p-8 gap-4`} >
-            <Typography component='h3' variant='h3' className="font-semibold text-5xl mt-16 mb-8">
-              Brewing Salt Calculator
-            </Typography>
+      <div className={` w-full bg-[#0e1117] h-full`}>
+        <div className={`flex flex-col justify-center p-8 gap-4`} >
+          <h3 className="font-semibold text-5xl mt-16 mb-8">
+            Brewing Salt Calculator
+          </h3>
 
-            <Stepper activeStep={this.state.activeStep} className={this.classes.stepper}>
-              {this.steps.map((label) => (
-                <Step key={label}>
-                  <StepLabel >{label}</StepLabel>
-                </Step>
-              ))}
-            </Stepper>
+          <Stepper activeStep={this.state.activeStep} className={this.classes.stepper}>
+            {this.steps.map((label) => (
+              <Step key={label}>
+                <StepLabel > <div className='text-white'>{label}</div></StepLabel>
+              </Step>
+            ))}
+          </Stepper>
 
-            <React.Fragment>
-              {this.getStepContent(this.state.activeStep)}
-              <div className={this.classes.buttons}>
-                {this.state.activeStep !== 0 && (
-                  <Button onClick={this.handleBack} className={this.classes.button}>
-                    Back
-                  </Button>
-                )}
+          <React.Fragment>
+            {this.getStepContent(this.state.activeStep)}
+            <div className={this.classes.buttons}>
+              {this.state.activeStep !== 0 && (
+                <Button onClick={this.handleBack} className='w-[calc(100%-1rem)] m-2 my-10 font-bold text-lg shadow-gray-400 hover:opacity-75'>
+                  Back
+                </Button>
+              )}
 
-                {this.state.activeStep < this.steps.length - 1 ? (
-                  <Button variant='contained' color='primary' onClick={this.handleNext} className={this.classes.button}>Next</Button>
-                ) : (
-                  <Button variant='contained' color='primary' onClick={window.print} className={this.classes.button}>Print Summary</Button>
-                )
-                }
-              </div>
-            </React.Fragment>
-          </div>
+              {this.state.activeStep < this.steps.length - 1 ? (
+                <Button variant='contained' color='primary' onClick={this.handleNext} className='w-[calc(100%-1rem)] m-2 my-10 gradient font-bold text-lg shadow-gray-400 hover:opacity-75'>Next</Button>
+              ) : ( ""
+                // <Button variant='contained' color='primary' onClick={window.print} className={this.classes.button}>Print Summary</Button>
+              )
+              }
+            </div>
+          </React.Fragment>
         </div>
+      </div>
     );
   }
 }
