@@ -1,24 +1,24 @@
-import React from 'react'
-import './Contact.css';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 const Contact = () => {
   return (
-    <div className="contact-container">
-      <h1 className="contact-heading">Contact Information</h1>
-      <div className="contact-card">
-        <h2>Laxman Sharma</h2>
-        <p>Mobile: +91 63504 62454</p>
-        <p>Email: laxman.sharma.che21@itbhu.ac</p>
+    <div className="w-full bg-[#0e1117] h-full flex justify-center items-center">
+      <div className="p-8 gap-4 ">
+        <div className='w-[30rem] h-auto p-10  bg-gray-700 flex justify-center items-center gap-8 flex-col rounded-xl'>
+          <p className='font-semibold text-xl tracking-wide'>Contact Us</p>
+          <Input className="bg-[#262730] text-md outline-none" type="text" placeholder="Enter your name" />
+          <Input className="bg-[#262730] text-md outline-none" type="email" placeholder="Enter your email" />
+          <Textarea className="bg-[#262730] text-md outline-none" placeholder="Enter your massage" />
+          <Button
+            type="submit"
+            className="w-full gradient font-bold text-lg shadow-gray-400 hover:opacity-75"
+          >
+            Submit
+          </Button>
+        </div>
       </div>
-      <div className="contact-card">
-        <h2>Mahesh Pawar</h2>
-        <p>Mobile: +91 98765 43211</p>
-        <p>Email:mahesh.pawar.che21@itbhu.ac.in</p>
-      </div>
-      <div className="contact-card">
-        <h2>Md Nasir Hussain</h2>
-        <p>Mobile: +91 75420 85728</p>
-        <p>Email:mdnasir.hussain.che21@itbhu.ac.in </p>
-      </div>
+
     </div>
   )
 }

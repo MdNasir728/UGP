@@ -36,8 +36,8 @@
   }
 
   .dark {
-    --bgDark1: #262730;
-    --bgDark2: #0e1117;
+    --bgDark1: #242639;
+    --bgDark2: #1e2534;
     --text: #f0f8ff;
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -80,16 +80,14 @@
 }
 
 .active {
-  background: orangered;
+  background: rgb(136, 125, 120);
 }
 .gradient {
-  background: rgb(101, 99, 255);
+  background: rgb(111, 109, 239);
   background: linear-gradient(
     90deg,
-    rgba(101, 99, 255, 1) 0%,
-    rgba(120, 54, 235, 1) 31%,
-    rgba(255, 99, 132, 1) 64%,
-    rgba(235, 54, 234, 1) 100%
+    rgb(184, 184, 196) 0%,
+    rgb(171, 171, 171) 31%,
   );
 }
 

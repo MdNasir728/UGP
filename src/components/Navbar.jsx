@@ -10,10 +10,10 @@ const Navbar = () => {
           <Avatar className="w-12 h-12">
             <AvatarImage src="src/assets/logo.jpg" alt="logo" />
           </Avatar>
-          <h1 className="font-bold text-3xl text-white">AquaInsight</h1>
+          <h1 className="font-bold text-3xl text-gray-300">AquaInsight</h1>
         </div>
       </div>
-      <div className="bg-[#0e1016] p-8 m-4 rounded-xl flex flex-col gap-4">
+      <div className=" bg-[#181c26] p-8 m-4 rounded-xl flex flex-col gap-4">
         <div className="font-bold text-xl w-full ">
           <NavLink
             className="py-2 px-4 rounded-xl flex self-stretch hover:text-gray-600"

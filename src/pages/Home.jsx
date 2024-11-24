@@ -6,12 +6,12 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full bg-[#0e1117] h-full">
-        <div className="flex flex-col justify-center p-8 gap-4">
-          <h3 className="font-semibold text-5xl mt-16 mb-8">
+      <div className="w-full bg-[#181c26] h-full">
+        <div className="flex flex-col justify-center px-32 py-16 gap-4">
+          <h3 className="font-semibold text-4xl mt-16 mb-8 text-gray-300">
             Know Your Water Quality
           </h3>
-          <p className="font-medium text-lg">
+          <p className="font-medium text-lg text-gray-400">
             At AquaInsight, we are committed to providing you with accurate and
             reliable information about water quality. Access real-time data and
             comprehensive analysis on various parameters such as turbidity, pH
@@ -23,10 +23,11 @@ const Home = () => {
             quality in your area. Join us in safeguarding this precious resource
             for future generations.
           </p>
+          <br />
+          <hr />
         </div>
-        <div className="w-full h-[2px] bg-slate-400 px-5" />
         <div>
-          <h5 className="flex flex-col items-center justify-center p-8 gap-4 font-semibold text-xl">
+          <h5 className="flex flex-col items-center justify-center p-8 gap-4 font-semibold text-xl text-gray-300">
             Check Water Quality in Your Area
           </h5>
           <CheckOnLocation />
